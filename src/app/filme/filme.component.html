@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Filmes</h2>
+    <table class="table">
+        <thead>
+            <td>Nome</td>
+            <td>Descricao</td>
+            <td>Ações</td>
+        </thead>
+        <tbody>
+            <tr *ngFor="let filme of Filmes">
+                <td>{{ filme.nome }}</td>
+                <td>{{ filme.descricao }}</td>
+                <td>
+                    <div>
+                        <button>Editar</button>
+                        <button>Deletar</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
