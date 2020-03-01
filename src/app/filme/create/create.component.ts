@@ -1,11 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FilmeService } from '../filme.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { Filme } from '../filme.model';
-import { takeUntil } from 'rxjs/operators';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-create',
@@ -16,17 +12,20 @@ export class CreateComponent implements OnInit {
 
   filme: any;
 
-  constructor(public filmeService: FilmeService) { }
+  constructor(
+    public filmeService: FilmeService, 
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.filme = {};
   }
 
-  postFilme(form: FormGroup){
+  postFilme(form){
     this.filmeService.postFilmes(this.filme).subscribe(res =>{
       console.log(res);
-      form.reset();
+      console.log("Cadastro Efetuado com sucesso!!")
+      this.router.navigate(['/filmes'])
     })
   }
-
 }

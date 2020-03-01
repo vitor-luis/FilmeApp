@@ -11,13 +11,15 @@ import { RouterModule } from '@angular/router';
 import { CreateComponent } from './filme/create/create.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { EditarComponent } from './filme/editar/editar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmeComponent,
-    CreateComponent
+    CreateComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,

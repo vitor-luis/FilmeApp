@@ -19,8 +19,20 @@ export class FilmeComponent implements OnInit {
 
   getFilmes(){
     this.filmeService.getFilmes().subscribe(res =>{
+      console.log(res.status);
+      console.log(res.body['data']);
+      console.log("Listagem efetuada com sucesso")
+      this.Filmes = res.body['data']
+    },
+    error =>{
+      console.log(error.status);
+      console.log("Erro na listagem")
+    })
+  }
+  deleteFilme(id){
+    this.filmeService.deleteFilme(id).subscribe(res =>{
       console.log(res);
-      this.Filmes = res['data']
+      location.reload();
     })
   }
 }

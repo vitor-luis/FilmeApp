@@ -12,8 +12,8 @@
                 <td>{{ filme.descricao }}</td>
                 <td>
                     <div>
-                        <button>Editar</button>
-                        <button>Deletar</button>
+                        <button [routerLink]="['/filmes/editar', filme._id]">Editar</button>
+                        <button (click)="deleteFilme(filme._id)">Deletar</button>
                     </div>
                 </td>
             </tr>

@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Criar Filme</h2>
-    <form action="post" #form="ngForm" (ngSubmit)="postFilme(form)">
+    <form action="post" #form="ngForm" (ngSubmit)="postFilme(form.value)">
         <div class="form-group">
             <label for="nome">Nome: </label><br>
             <input type="text" placeholder="Insira o nome" name="nome" [(ngModel)]="filme.nome" required />
