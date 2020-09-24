@@ -10,7 +10,6 @@ import { FilmeService } from '../filme.service';
 })
 export class EditarComponent implements OnInit {
 
-  
   private id;
   nome: String ='';
   descricao: String = '';
@@ -24,7 +23,7 @@ export class EditarComponent implements OnInit {
     private router : Router
   ) { }
 
-  ngOnInit(){
+  ngOnInit(): void{
     this.id = this.route.snapshot.params.id;
 
     this.filmeForm = this.formBiulder.group({
@@ -36,7 +35,7 @@ export class EditarComponent implements OnInit {
     this.getFilmesById(this.id)
   }
 
-  getFilmesById(id: number){
+  getFilmesById(id: number): void{
     this.filmeService.getFilmesById(id).subscribe(res =>{
       console.log(res)
       this.filmeForm.patchValue({
@@ -47,7 +46,7 @@ export class EditarComponent implements OnInit {
     })
   }
 
-  putFilme(form){
+  putFilme(form): void{
     this.filmeService.putFilme(this.id, form).subscribe(res =>{
       console.log(res)
     })
